@@ -1,0 +1,22 @@
+<h1>Welcome to the Tasks Page</h1>
+
+<p>Here are the tasks</p>
+
+<%= form_for @task do |f| %>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<ul>
+<% current_user.tasks.each do |task| %>
+  <li>
+    <%= task.content %>
+  </li>
+<% end %>
+</ul>
+

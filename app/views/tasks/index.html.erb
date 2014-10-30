@@ -12,11 +12,7 @@
   </div>
 <% end %>
 
-<ul>
-<% current_user.tasks.each do |task| %>
-  <li>
-    <%= task.content %>
-  </li>
-<% end %>
+<ul id="tasks-list">
+  <%= render current_user.tasks %>
 </ul>
 

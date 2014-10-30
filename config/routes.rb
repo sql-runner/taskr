@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
 
-  resources :tasks, only: [:new, :create]
-  
+  resources :tasks, only: [:new, :create] do
+    member do
+      post "completed" => "completed_tasks#create"
+    end
+  end
   constraints Monban::Constraints::SignedIn.new do
     root "tasks#index", as: 'index'
   end
